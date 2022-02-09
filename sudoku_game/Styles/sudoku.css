@@ -6,6 +6,8 @@
 .hs-button{
     background-color: black;
     color: white;
+    margin-left:auto;
+    margin-right: auto;
     
 }
 
@@ -33,7 +35,9 @@
 }
 
 .board{
-    margin-top: 10rem;
+    margin-top: 2rem;
+    margin-left:auto;
+    margin-right: auto;
     border: 2px solid;
 }
 tr:first-child td {
@@ -46,6 +50,8 @@ td {
 	border: 1px solid lightgrey;
 	height: 50px;
 	width: 50px;
+    text-align: center;
+    font-family:Arial;
 }
 td:first-child {
 	border-left-color: black;
@@ -55,5 +61,7 @@ td:nth-child(3n) {
 }
 
 .figure2{
-    margin: 5rem;
+    margin: 2rem;
+    margin-left:auto;
+    margin-right: auto;
 }
