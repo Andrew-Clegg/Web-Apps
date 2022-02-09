@@ -1,2 +1,48 @@
 /*empty*/
-.css
+.hcontainer {
+    background-color: black;
+  }
+
+.hs-button{
+    background-color: black;
+    color: white;
+    
+}
+
+.titl{
+    color: white;
+}
+
+.user-input{
+    background-color: #f2f2f2;
+}
+
+.error{
+    background-color: #f76c5e;
+}
+
+.board{
+    margin-top: 10rem;
+    border: 2px solid;
+}
+tr:first-child td {
+	border-top-color: black;
+}
+tr:nth-child(3n) td {
+	border-bottom-color: black;
+}
+td {
+	border: 1px solid lightgrey;
+	height: 50px;
+	width: 50px;
+}
+td:first-child {
+	border-left-color: black;
+}
+td:nth-child(3n) {
+	border-right-color: black;
+}
+
+.figure2{
+    margin: 5rem;
+}
