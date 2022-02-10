@@ -10,6 +10,11 @@
     
 }
 
+.hs-table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .titl{
     color: white;
 }
@@ -58,7 +63,11 @@ td:nth-child(3n) {
 }
 
 td:hover{
-    background: #f76c5e;
+    background: #f5dd90;
+}
+
+th{
+    border-bottom: 3px solid;
 }
 
 .figure2{
