@@ -1,13 +1,12 @@
 /*empty*/
 .hcontainer {
-    background-color: black;
+    background: black;
+    padding: 20px;
   }
 
 .hs-button{
     background-color: black;
     color: white;
-    margin-left:auto;
-    margin-right: auto;
     
 }
 
@@ -24,13 +23,11 @@
 }
 
 .row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-0.5 * var(--bs-gutter-x));
-    margin-left: calc(-0.5 * var(--bs-gutter-x));
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
     width: 100px;
 }
 
@@ -58,6 +55,10 @@ td:first-child {
 }
 td:nth-child(3n) {
 	border-right-color: black;
+}
+
+td:hover{
+    background: #f76c5e;
 }
 
 .figure2{
