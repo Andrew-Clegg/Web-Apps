@@ -10,7 +10,7 @@
     
 }
 
-.hs-table{
+.stats{
     margin-right: auto;
     margin-left: auto;
 }
@@ -45,10 +45,11 @@
 tr:first-child td {
 	border-top-color: black;
 }
-tr:nth-child(3n) td {
+.bot:nth-child(3n) td {
 	border-bottom-color: black;
 }
-td {
+
+ td {
 	border: 1px solid lightgrey;
 	height: 50px;
 	width: 50px;
@@ -74,5 +75,13 @@ th{
     margin: 2rem;
     margin-left:auto;
     margin-right: auto;
+}
 
+.figuretwo > td{
+    border: 2px solid;
+    border-color: black;
+}
+
+.singlerow:first-child td {
+	border: 1px solid black;
 }
