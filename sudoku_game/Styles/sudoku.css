@@ -1,7 +1,7 @@
 /*empty*/
 .hcontainer {
     background: black;
-    padding: 20px;
+    background-size: 800px auto;
   }
 
 .hs-button{
@@ -74,4 +74,5 @@ th{
     margin: 2rem;
     margin-left:auto;
     margin-right: auto;
+
 }
