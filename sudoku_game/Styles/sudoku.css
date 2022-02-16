@@ -1,17 +1,32 @@
 /*empty*/
 .hcontainer {
-    background: black;
+    background:  rgb(65, 63, 63);
     height: 100px;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-wrap: inherit;
+    align-items: left;
   }
 
+.menu{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 a:link, a:visited{
-    background-color: black;
+    background-color: rgb(65, 63, 63);
     color: white;
 }
 .headbutton{
-    background-color: black;
+    background-color:  rgb(65, 63, 63);
     color: white;
     border: transparent;
+    margin-left: 2rem;
 
 }
 .user-input{
@@ -23,8 +38,8 @@ a:link, a:visited{
 }
 
 .menu li{
-    display: inline-block;
     margin-left: 1.5rem;
+    display: inline-flex;
 }
   /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
 
