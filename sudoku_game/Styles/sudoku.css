@@ -1,9 +1,19 @@
 /*empty*/
 .hcontainer {
     background: black;
-    background-size: 800px auto;
+    height: 100px;
   }
 
+a:link, a:visited{
+    background-color: black;
+    color: white;
+}
+.headbutton{
+    background-color: black;
+    color: white;
+    border: transparent;
+
+}
 .user-input{
     background-color: #f2f2f2;
 }
@@ -12,20 +22,12 @@
     background-color: #f76c5e;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: auto;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100px;
+.menu li{
+    display: inline-block;
+    margin-left: 1.5rem;
 }
   /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
-.headbutton{
-    background-color: black;
-    color: white;
-    
-}
+
 
 .stats{
     margin-top: 2rem;
