@@ -3,9 +3,6 @@
     background: black;
     background-size: 800px auto;
   }
-  .titl{
-    color: white;
-}
 
 .user-input{
     background-color: #f2f2f2;
@@ -24,7 +21,7 @@
     width: 100px;
 }
   /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
-.hs-button{
+.headbutton{
     background-color: black;
     color: white;
     
