@@ -21,13 +21,13 @@
 a:link, a:visited{
     background-color: rgb(65, 63, 63);
     color: white;
+    text-decoration: none;
 }
 .headbutton{
     background-color:  rgb(65, 63, 63);
     color: white;
     border: transparent;
     margin-left: 2rem;
-
 }
 .user-input{
     background-color: #f2f2f2;
