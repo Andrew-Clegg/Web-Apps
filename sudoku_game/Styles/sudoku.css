@@ -3,19 +3,7 @@
     background: black;
     background-size: 800px auto;
   }
-
-.hs-button{
-    background-color: black;
-    color: white;
-    
-}
-
-.stats{
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.titl{
+  .titl{
     color: white;
 }
 
@@ -35,7 +23,36 @@
     margin-left: auto;
     width: 100px;
 }
+  /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
+.hs-button{
+    background-color: black;
+    color: white;
+    
+}
 
+.stats{
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.stats th{
+    border-bottom: solid black;
+    text-align: center;
+    font-family:Arial;
+}
+.stats td{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    font-family:Arial;
+    color: grey
+}
+
+
+
+
+/*GAMEBOARD STYLING SECTION-------------------------------------------------------------------------------------------*/
 .board{
     margin-top: 2rem;
     margin-left:auto;
@@ -49,17 +66,17 @@ tr:first-child td {
 	border-bottom-color: black;
 }
 
- td {
+.gameboard td {
 	border: 1px solid lightgrey;
 	height: 50px;
 	width: 50px;
     text-align: center;
     font-family:Arial;
 }
-td:first-child {
+.gameboard td:first-child {
 	border-left-color: black;
 }
-td:nth-child(3n) {
+.gameboard td:nth-child(3n) {
 	border-right-color: black;
 }
 
@@ -67,10 +84,8 @@ td:hover{
     background: #f5dd90;
 }
 
-th{
-    border-bottom: 3px solid;
-}
 
+/*FIGURE TWO SECTION------------------------------------------------------------------------------*/
 .figure2{
     margin: 2rem;
     margin-left:auto;
@@ -82,6 +97,10 @@ th{
     border-color: black;
 }
 
-.singlerow:first-child td {
+.singlerow> td {
 	border: 1px solid black;
+	height: 50px;
+	width: 50px;
+    text-align: center;
+    font-family:Arial;
 }
