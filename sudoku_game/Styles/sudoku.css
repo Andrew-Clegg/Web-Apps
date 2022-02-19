@@ -1,30 +1,18 @@
-/*empty*/
 .hcontainer {
-    background:  rgb(65, 63, 63);
+    background:  rgb(36, 36, 39);
     height: 100px;
-    padding-top: 1.5rem;
     display: flex;
     flex-wrap: inherit;
     align-items: left;
   }
 
-.menu{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
 a:link, a:visited{
-    background-color: rgb(65, 63, 63);
+    background-color: rgb(36, 36, 39);
     color: white;
     text-decoration: none;
 }
 .headbutton{
-    background-color:  rgb(65, 63, 63);
+    background-color:  rgb(36, 36, 39);
     color: white;
     border: transparent;
     margin-left: 2rem;
@@ -36,13 +24,7 @@ a:link, a:visited{
 .error{
     background-color: #f76c5e;
 }
-
-.menu li{
-    margin-left: 1.5rem;
-    display: inline-flex;
-}
   /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
-
 
 .stats{
     margin-top: 2rem;
