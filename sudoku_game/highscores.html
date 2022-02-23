@@ -10,14 +10,20 @@
     <link rel="stylesheet" href="Styles/sudoku.css" />
 </head>
 <body>
-    <nav class="hcontainer">
-        <div class="menu" id="navbarToggleExternalContent">
-            <li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid hcontainer">
+            <div>
                 <img src="Images/logo.gif" width="55" height="55">
-                <h3 class="headbutton">Sudoku Centre</h3>
-                <button class="headbutton"><a href="sudoku.html">Play Game</a></button>
-                <button class="headbutton"><a href="highscores.html">HighScores</a></button>
-            </li>
+                <a class="headbutton" href="#">Sudoku Centre</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="droplist">
+                    <li class="nav-item"><button class="nav-link active headbutton" aria-current="page"><a href="sudoku.html">Play Game</a></button></li>
+                    <li class="nav-item"><button class="nav-link active headbutton"><a href="highscores.html">HighScores</a></button></li>
+                </ul>
+            </div>
         </div>
     </nav>
 

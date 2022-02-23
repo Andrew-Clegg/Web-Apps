@@ -1,32 +1,36 @@
 window.onload= function(){
     var body = document.getElementsByTagName("body")[0];
     let tbl = document.getElementById("board");
-  
-    // creating all cells
-    for (var i = 1; i < 10; i++) {
-      var row = document.createElement("tr");
-
-      
-      for (var j = 1; j < 10; j++) {
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode(j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-        cell.setAttribute("id", "cell" + i + j);
-      }
-  
-      // add the row to the table
-      tbl.appendChild(row);
-    }
-  
-    body.appendChild(tbl);
-
-    buildInput();
+    let tbl2 = document.getElementById("figure2");
+    
+    buildBoard(tbl, body);
+    buildInput(tbl2, body);
 
 }
 
-function buildInput(){
-    let tbl2 = document.getElementById("figure2");
+function buildBoard(tbl, body){
+    let arr = [1,2,3,4,5,6,7,8,9,-1];
+    
+    for (var i = 1; i < 10; i++) {
+        var row = document.createElement("tr");
+  
+        
+        for (var j = 1; j < 10; j++) {
+          var cell = document.createElement("td");
+          var cellText = document.createTextNode(arr[j]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+          cell.setAttribute("id", "cell" + i + j);
+        }
+    
+        // add the row to the table
+        tbl.appendChild(row);
+      }
+    
+      body.appendChild(tbl);
+}
+
+function buildInput(tbl2, body2){
   
     var row = document.createElement("tr");
     row.setAttribute("class", "singlerow")
@@ -43,7 +47,7 @@ function buildInput(){
     row.appendChild(cell2);
       // add the row to the table
     tbl2.appendChild(row);
-    body.appendChild(tbl2);
+    body2.appendChild(tbl2);
 
 }
 
