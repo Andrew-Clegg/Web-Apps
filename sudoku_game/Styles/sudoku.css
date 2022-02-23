@@ -63,21 +63,21 @@ a:link, a:visited{
 tr:first-child td {
 	border-top-color: black;
 }
-.bot:nth-child(3n) td {
+tr:nth-child(3n) td {
 	border-bottom-color: black;
 }
 
-.gameboard td {
+.board td {
 	border: 1px solid lightgrey;
 	height: 50px;
 	width: 50px;
     text-align: center;
     font-family:Arial;
 }
-.gameboard td:first-child {
+.board td:first-child {
 	border-left-color: black;
 }
-.gameboard td:nth-child(3n) {
+.board td:nth-child(3n) {
 	border-right-color: black;
 }
 
