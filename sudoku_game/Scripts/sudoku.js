@@ -10,17 +10,22 @@ window.onload= function(){
 
 function buildBoard(tbl, body){
     let arr = [1,2,3,4,5,6,7,8,9,-1];
-    
-    for (var i = 1; i < 10; i++) {
+    let boardArray = new Array(9);
+    for (var i = 0; i < 9; i++) {
         var row = document.createElement("tr");
-  
+        boardArray[i] = new Array(9);
         
-        for (var j = 1; j < 10; j++) {
-          var cell = document.createElement("td");
-          var cellText = document.createTextNode(arr[j]);
-          cell.appendChild(cellText);
-          row.appendChild(cell);
-          cell.setAttribute("id", "cell" + i + j);
+        for (var j = 0; j < 9; j++) {
+            let p = Math.floor(Math.random() * 10);
+            boardArray[i][j] = arr[p];
+            console.log(boardArray);
+            var cell = document.createElement("td");
+            if(arr[p] == -1){var cellText = document.createTextNode("  ");}
+            else{var cellText = document.createTextNode(arr[p]);}
+            
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+            cell.setAttribute("id", "" + (i+1) + (j+1));
         }
     
         // add the row to the table
@@ -35,16 +40,18 @@ function buildInput(tbl2, body2){
     var row = document.createElement("tr");
     row.setAttribute("class", "singlerow")
       
-    for (var j = 1; j < 10; j++) {
+    for (var l = 1; l < 10; l++) {
         var cell2 = document.createElement("td");
-        var cell2Text = document.createTextNode(j);
+        var cell2Text = document.createTextNode(l);
         cell2.appendChild(cell2Text);
         row.appendChild(cell2);
+        cell2.setAttribute("id", "btn" + l);
 
     }
     var cell2 = document.createElement("td");
     cell2.appendChild(document.getElementById("img"));
     row.appendChild(cell2);
+    
       // add the row to the table
     tbl2.appendChild(row);
     body2.appendChild(tbl2);
