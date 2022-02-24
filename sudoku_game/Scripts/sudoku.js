@@ -2,9 +2,16 @@ window.onload= function(){
     var body = document.getElementsByTagName("body")[0];
     let tbl = document.getElementById("board");
     let tbl2 = document.getElementById("figure2");
+    let activeDigit = -1;
     
     buildBoard(tbl, body);
     buildInput(tbl2, body);
+
+    tbl2.addEventListener('click', function(e) {
+        e.target.classList.toggle('selected');
+        let activeDigit = document.getElementsByClassName('selected')[0].innerHTML;
+        console.log("The active digit is currently: " + activeDigit);
+      })
 
 }
 
@@ -17,8 +24,10 @@ function buildBoard(tbl, body){
         
         for (var j = 0; j < 9; j++) {
             let p = Math.floor(Math.random() * 10);
-            boardArray[i][j] = arr[p];
-            console.log(boardArray);
+            boardArray[i][j] = arr[p];                                      //insert if valid
+
+
+
             var cell = document.createElement("td");
             if(arr[p] == -1){var cellText = document.createTextNode("  ");}
             else{var cellText = document.createTextNode(arr[p]);}
