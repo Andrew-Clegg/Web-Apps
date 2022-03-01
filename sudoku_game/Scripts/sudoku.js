@@ -7,6 +7,10 @@ window.onload= function(){
     buildBoard(tbl, body);
     buildInput(tbl2, body);
 
+    tbl.addEventListener('click', function(e) {
+        e.target.classList.toggle('selected');
+        var activeDigit = document.getElementsByClassName('selected')[0].innerHTML;                 //grabs the value in the selected cell
+        console.log("The active digit is currently: " + activeDigit);});
     tbl2.addEventListener('click', function(e) {
         e.target.classList.toggle('selected');
         var activeDigit = document.getElementsByClassName('selected')[0].innerHTML;                 //grabs the value in the selected cell
@@ -18,21 +22,29 @@ window.onload= function(){
 }
 
 function buildBoard(tbl, body){
-    let arr = [1,2,3,4,5,6,7,8,9,-1];
-    let boardArray = new Array(9);
+    //let arr = [1,2,3,4,5,6,7,8,9,-1];
+    let boardArray = gameArray = [
+        [-1,1,-1,-1,-1,-1,-1,9,-1],
+        [-1,-1,4,-1,-1,-1,2,-1,-1],
+        [-1,-1,8,-1,-1,5,-1,-1,-1],
+        [-1,-1,-1,-1,-1,-1,-1,3,-1],
+        [2,-1,-1,-1,4,-1,1,-1,-1],
+        [-1,-1,-1,-1,-1,-1,-1,-1,-1],
+        [-1,-1,1,8,-1,-1,6,-1,-1],
+        [-1,3,-1,-1,-1,-1,-1,8,-1],
+        [-1,-1,6,-1,-1,-1,-1,-1,-1]   
+     ];//new Array(9);
     for (var i = 0; i < 9; i++) {
         var row = document.createElement("tr");
-        boardArray[i] = new Array(9);
+        //boardArray[i] = new Array(9);
         
         for (var j = 0; j < 9; j++) {
-            let p = Math.floor(Math.random() * 10);
-            boardArray[i][j] = arr[p];                                      //insert if valid
-
-
+            //let p = Math.floor(Math.random() * 10);
+            //boardArray[i][j] = arr[p];
 
             var cell = document.createElement("td");
-            if(arr[p] == -1){var cellText = document.createTextNode("  ");}
-            else{var cellText = document.createTextNode(arr[p]);}
+            if(boardArray[i][j] == -1){var cellText = document.createTextNode("  ");}             
+            else{var cellText = document.createTextNode(boardArray[i][j]);}
             
             cell.appendChild(cellText);
             row.appendChild(cell);
@@ -41,8 +53,9 @@ function buildBoard(tbl, body){
     
         // add the row to the table
         tbl.appendChild(row);
+
       }
-    
+      tbl.setAttribute("class", "board");
       body.appendChild(tbl);
 }
 

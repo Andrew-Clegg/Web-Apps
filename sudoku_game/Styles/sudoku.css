@@ -81,7 +81,7 @@ tr:nth-child(3n) td {
 	border-right-color: black;
 }
 
-.board td:hover{
+#board td:hover, #board td.selected{
     background: #f5dd90;
 }
 
@@ -106,6 +106,6 @@ tr:nth-child(3n) td {
     font-family:Arial;
 }
 
-td.selected{
+.singlerow td.selected, .singlerow td:hover{
     background-color: #f5dd90;
 }
