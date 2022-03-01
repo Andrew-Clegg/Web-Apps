@@ -31,18 +31,18 @@ a:link, a:visited{
 }
   /*HIGHSCORES STYLING SECITON-------------------------------------------------------------------*/
 
-.stats{
+#stats{
     margin-top: 2rem;
     margin-right: auto;
     margin-left: auto;
 }
 
-.stats th{
+#stats th{
     border-bottom: solid black;
     text-align: center;
     font-family:Arial;
 }
-.stats td{
+#stats td{
     width: 100px;
     height: 40px;
     text-align: center;
@@ -81,7 +81,7 @@ tr:nth-child(3n) td {
 	border-right-color: black;
 }
 
-td:hover{
+.board td:hover{
     background: #f5dd90;
 }
 

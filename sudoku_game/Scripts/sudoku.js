@@ -9,9 +9,11 @@ window.onload= function(){
 
     tbl2.addEventListener('click', function(e) {
         e.target.classList.toggle('selected');
-        let activeDigit = document.getElementsByClassName('selected')[0].innerHTML;
-        console.log("The active digit is currently: " + activeDigit);
-      })
+        var activeDigit = document.getElementsByClassName('selected')[0].innerHTML;                 //grabs the value in the selected cell
+        console.log("The active digit is currently: " + activeDigit);});
+
+
+
 
 }
 
