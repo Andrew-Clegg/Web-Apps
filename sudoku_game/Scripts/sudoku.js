@@ -3,21 +3,26 @@ window.onload= function(){
     let tbl = document.getElementById("board");
     let tbl2 = document.getElementById("figure2");
     let activeDigit = -1;
+    let activeSquare = -1;
     
     buildBoard(tbl, body);
     buildInput(tbl2, body);
 
-    tbl.addEventListener('click', function(e) {
-        e.target.classList.toggle('selected');
-        var activeDigit = document.getElementsByClassName('selected')[0].innerHTML;                 //grabs the value in the selected cell
-        console.log("The active digit is currently: " + activeDigit);});
-    tbl2.addEventListener('click', function(e) {
-        e.target.classList.toggle('selected');
-        var activeDigit = document.getElementsByClassName('selected')[0].innerHTML;                 //grabs the value in the selected cell
-        console.log("The active digit is currently: " + activeDigit);});
+    $('.board td').click(function(){            
+        if(this.innerHTML > 0){                 //clicking on a confirmed square
+            console.log("a number");
 
+        }else{
+            if(activeDigit!= -1){
+                this.innerHTML = activeDigit;
+            }
+        else{alert("You must select a digit first.");}}           //clicking empty value
+    });
 
-
+    $('.figure2 td').click(function(){            //clicking the number palette
+        activeDigit = this.innerHTML;
+        console.log("active digit " + activeDigit)
+    });
 
 }
 
@@ -43,12 +48,13 @@ function buildBoard(tbl, body){
             //boardArray[i][j] = arr[p];
 
             var cell = document.createElement("td");
+            cell.setAttribute("id", "" + (i+1) + (j+1));
             if(boardArray[i][j] == -1){var cellText = document.createTextNode("  ");}             
             else{var cellText = document.createTextNode(boardArray[i][j]);}
             
             cell.appendChild(cellText);
             row.appendChild(cell);
-            cell.setAttribute("id", "" + (i+1) + (j+1));
+            
         }
     
         // add the row to the table

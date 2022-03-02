@@ -81,7 +81,7 @@ tr:nth-child(3n) td {
 	border-right-color: black;
 }
 
-#board td:hover, #board td.selected{
+#board td:hover, #board td.selectedBox{
     background: #f5dd90;
 }
 
