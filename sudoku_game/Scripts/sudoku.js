@@ -3,18 +3,37 @@ window.onload= function(){
     let tbl = document.getElementById("board");
     let tbl2 = document.getElementById("figure2");
     let activeDigit = -1;
-    let activeSquare = -1;
+    let boardAray  = [
+        [-1,1,-1,-1,-1,-1,-1,9,-1],
+        [-1,-1,4,-1,-1,-1,2,-1,-1],
+        [-1,-1,8,-1,-1,5,-1,-1,-1],
+        [-1,-1,-1,-1,-1,-1,-1,3,-1],
+        [2,-1,-1,-1,4,-1,1,-1,-1],
+        [-1,-1,-1,-1,-1,-1,-1,-1,-1],
+        [-1,-1,1,8,-1,-1,6,-1,-1],
+        [-1,3,-1,-1,-1,-1,-1,8,-1],
+        [-1,-1,6,-1,-1,-1,-1,-1,-1]];
     
-    buildBoard(tbl, body);
+    buildBoard(tbl, body, boardAray);
     buildInput(tbl2, body);
 
     $('.board td').click(function(){            
         if(this.innerHTML > 0){                 //clicking on a confirmed square
-            console.log("a number");
-
         }else{
             if(activeDigit!= -1){
-                this.innerHTML = activeDigit;
+                var activeSquareID= this.getAttribute('id');
+                row = activeSquareID[0] -1;
+                col = activeSquareID[1] -1;
+
+                if(validInsert(boardAray, row, col)){
+                    this.innerHTML = activeDigit;           
+                    boardAray[row][col] = activeDigit;
+                    window.sessionStorage.setItem('game', boardAray);
+                    window.sessionStorage.setItem('digit', activeDigit);
+                }
+                /*else{//error insert
+                    console.log('class set to error')
+                }/*/
             }
         else{alert("You must select a digit first.");}}           //clicking empty value
     });
@@ -26,19 +45,10 @@ window.onload= function(){
 
 }
 
-function buildBoard(tbl, body){
+function buildBoard(tbl, body, boardArray){
     //let arr = [1,2,3,4,5,6,7,8,9,-1];
-    let boardArray = gameArray = [
-        [-1,1,-1,-1,-1,-1,-1,9,-1],
-        [-1,-1,4,-1,-1,-1,2,-1,-1],
-        [-1,-1,8,-1,-1,5,-1,-1,-1],
-        [-1,-1,-1,-1,-1,-1,-1,3,-1],
-        [2,-1,-1,-1,4,-1,1,-1,-1],
-        [-1,-1,-1,-1,-1,-1,-1,-1,-1],
-        [-1,-1,1,8,-1,-1,6,-1,-1],
-        [-1,3,-1,-1,-1,-1,-1,8,-1],
-        [-1,-1,6,-1,-1,-1,-1,-1,-1]   
-     ];//new Array(9);
+  
+     //new Array(9);
     for (var i = 0; i < 9; i++) {
         var row = document.createElement("tr");
         //boardArray[i] = new Array(9);
@@ -89,15 +99,36 @@ function buildInput(tbl2, body2){
 }
 
 function sameBlock(x1, y1, x2, y2) {
+    if((x1 == x2 && y1==y2)){return false;}
     let firstRow = Math.floor(y1 / 3) * 3;
     let firstCol = Math.floor(x1 / 3) * 3;
     return (y2 >= firstRow && y2 <= (firstRow + 2) && x2 >= firstCol && x2 <= (firstCol + 2));
 }
  
 function sameRow(x1, y1, x2, y2) {
-    return y1 == y2;
+    if(x1!=x2){return y1 == y2;}
+    else{return false;}
 }
  
 function sameColumn(x1, y1, x2, y2) {
-    return x1 == x2;
+    if(y1!=y2){return x1 == x2;}
+    else{return false;}
+    
+}
+
+function validInsert(brd, row, col){
+    let num = window.sessionStorage.getItem('digit');
+    for(let i=0; i<9; i++){
+        for(let j = 0; j<9; j++){
+           /* if(brd[row][j] ==num){  //check same row
+                return false;
+            }
+            if(brd[i][col] ==num){  //check same col
+                return false;
+            }*/
+            return sameRow(row, col, row, i) && sameColumn(row, col, i, col)
+            
+        }
+    }
+
 }
