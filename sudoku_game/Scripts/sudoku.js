@@ -27,22 +27,30 @@ window.onload= function(){
 
                 if(validInsert(boardAray, row, col, activeDigit)){
                     this.innerHTML = activeDigit;   
-                    this.toggleAttribute('class','user-input');        
+                    $('td').not(this).removeClass("user-input");
+                    document.getElementById(activeSquareID).classList.add("user-input");      
                     boardAray[row][col] = activeDigit;
                     window.sessionStorage.setItem('game', boardAray);
                     window.sessionStorage.setItem('digit', activeDigit);
                 }
                 else{//error insert
-                    this.toggleAttribute('class','error');
+                    $('td').removeClass("error");
+                    document.getElementById(activeSquareID).classList.add("error");
                 }
             }
         else{alert("You must select a digit first.");}}           //clicking empty value
     });
 
     $('.figure2 td').click(function(){            //clicking the number palette
-        activeDigit = this.innerHTML;
-        this.toggleAttribute('class','user-input');
-        console.log("active digit " + activeDigit);
+        if(this.innerHTML <=9){                     
+            activeDigit = this.innerHTML;
+            $('.figure2 td').not(this).removeClass("user-input");
+            this.classList.add("user-input");
+        console.log("active digit " + activeDigit);}
+        else{//if undo was clicked
+            console.log("Undo");
+            document.getElementsByClassName("")
+        }
     });
 
 }
