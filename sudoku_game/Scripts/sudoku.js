@@ -26,21 +26,23 @@ window.onload= function(){
                 col = activeSquareID[1] -1;
 
                 if(validInsert(boardAray, row, col)){
-                    this.innerHTML = activeDigit;           
+                    this.innerHTML = activeDigit;   
+                    this.toggleAttribute('class','user-input');        
                     boardAray[row][col] = activeDigit;
                     window.sessionStorage.setItem('game', boardAray);
                     window.sessionStorage.setItem('digit', activeDigit);
                 }
-                /*else{//error insert
-                    console.log('class set to error')
-                }/*/
+                else{//error insert
+                    this.toggleAttribute('class','error');
+                }
             }
         else{alert("You must select a digit first.");}}           //clicking empty value
     });
 
     $('.figure2 td').click(function(){            //clicking the number palette
         activeDigit = this.innerHTML;
-        console.log("active digit " + activeDigit)
+        this.toggleAttribute('class','user-input');
+        console.log("active digit " + activeDigit);
     });
 
 }
@@ -126,7 +128,7 @@ function validInsert(brd, row, col){
             if(brd[i][col] ==num){  //check same col
                 return false;
             }*/
-            return sameRow(row, col, row, i) && sameColumn(row, col, i, col)
+            return !(sameRow(row, col, row, j) && sameColumn(row, col, i, col) &&sameBlock(row, col, i, j))
             
         }
     }
