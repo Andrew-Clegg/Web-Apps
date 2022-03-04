@@ -25,7 +25,7 @@ window.onload= function(){
                 row = activeSquareID[0] -1;
                 col = activeSquareID[1] -1;
 
-                if(validInsert(boardAray, row, col)){
+                if(validInsert(boardAray, row, col, activeDigit)){
                     this.innerHTML = activeDigit;   
                     this.toggleAttribute('class','user-input');        
                     boardAray[row][col] = activeDigit;
@@ -118,19 +118,26 @@ function sameColumn(x1, y1, x2, y2) {
     
 }
 
-function validInsert(brd, row, col){
-    let num = window.sessionStorage.getItem('digit');
+function validInsert(brd, row, col, dig){
+    let num = dig
+    let arrRow = []
+    let arrCol = []
     for(let i=0; i<9; i++){
-        for(let j = 0; j<9; j++){
-           /* if(brd[row][j] ==num){  //check same row
-                return false;
-            }
-            if(brd[i][col] ==num){  //check same col
-                return false;
-            }*/
-            return !(sameRow(row, col, row, j) && sameColumn(row, col, i, col) &&sameBlock(row, col, i, j))
+
+        arrRow.push(brd[row][i]);
+        arrCol.push(brd[i][col]);
+
+        if(arrCol.includes(num)){
+            console.log("column error for" + num)
+            return false;
+        }
+        if(arrRow.includes(num)){
+            console.log("row error for" + num)
+            return false;
+        }
+
+            //return !(sameRow(row, col, row, j) && sameColumn(row, col, i, col) &&sameBlock(row, col, i, j))
             
         }
-    }
-
+    return true;
 }
