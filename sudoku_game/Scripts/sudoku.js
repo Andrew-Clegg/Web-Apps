@@ -123,8 +123,14 @@ function validInsert(brd, row, col, dig){
     let arrRow = []
     let arrCol = []
     for(let i=0; i<9; i++){
-
-        arrRow.push(brd[row][i]);
+        for(let j=0; j<9; j++){
+            if(brd[i][j] == num){
+                if(sameColumn(i,j, row, col) || sameRow(i,j, row, col) || sameBlock(i,j, row, col)){
+                    console.log("invalid")
+                    return false;
+                }
+            }
+        /*arrRow.push(brd[row][i]);
         arrCol.push(brd[i][col]);
 
         if(arrCol.includes(num)){
@@ -134,10 +140,9 @@ function validInsert(brd, row, col, dig){
         if(arrRow.includes(num)){
             console.log("row error for" + num)
             return false;
-        }
+        }8*/
 
             //return !(sameRow(row, col, row, j) && sameColumn(row, col, i, col) &&sameBlock(row, col, i, j))
             
         }
-    return true;
-}
+}return true;}
