@@ -17,7 +17,8 @@ window.onload= function(){
     buildBoard(tbl, body, boardAray);
     buildInput(tbl2, body);
 
-    $('.board td').click(function(){            
+    $('.board td').click(function(){
+        $('td').removeClass("error");            
         if(this.innerHTML > 0){                 //clicking on a confirmed square
         }else{
             if(activeDigit!= -1){
@@ -26,15 +27,16 @@ window.onload= function(){
                 col = activeSquareID[1] -1;
 
                 if(validInsert(boardAray, row, col, activeDigit)){
-                    this.innerHTML = activeDigit;   
+                    this.innerHTML = activeDigit; 
+                    boardAray[row][col] = activeDigit;  
                     $('td').not(this).removeClass("user-input");
                     document.getElementById(activeSquareID).classList.add("user-input");      
-                    boardAray[row][col] = activeDigit;
+                    
                     window.sessionStorage.setItem('game', boardAray);
                     window.sessionStorage.setItem('digit', activeDigit);
                 }
                 else{//error insert
-                    $('td').removeClass("error");
+                    
                     document.getElementById(activeSquareID).classList.add("error");
                 }
             }
@@ -47,9 +49,11 @@ window.onload= function(){
             $('.figure2 td').not(this).removeClass("user-input");
             this.classList.add("user-input");
         console.log("active digit " + activeDigit);}
-        else{//if undo was clicked
+
+        else{                                           //if undo was clicked
             console.log("Undo");
-            document.getElementsByClassName("")
+            document.getElementsByClassName("user-input")[0].innerHTML = "  ";
+            
         }
     });
 
