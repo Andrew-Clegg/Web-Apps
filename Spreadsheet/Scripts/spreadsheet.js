@@ -5,12 +5,21 @@ window.onload=function(){
     
     buildTable(array, tbl, body);
 
-    $('th').not('.rowH th').click(function(){           //clicking row select
-        $('td').removeClass('selected');
-        console.log(this.getAttribute('column'));
-        selectRow(index)
+    //clicking column select
+    $('th').not('.columnH').click(function(){
+        console.log("click " + this.getAttribute("row"))
+        index = this.getAttribute('row');
+        selectColumn(index);
+    })
 
+    $('th').not('.rowH th').click(function(){           //clicking row select (i have backwards variable names)
+
+        index = this.getAttribute('column');
+        selectRow(index)
+        
     })     
+
+    $('td').click(function(){console.log(this.getAttribute("row"))})
 
 }
 
@@ -29,6 +38,7 @@ function buildTable(arr,tabl, bod){
                 else{
                     var cellText = document.createTextNode("Asmt " + j);
                 }
+                cell.setAttribute("row",""+ j)
                 cell.appendChild(cellText);
                 row2.appendChild(cell); 
                 
@@ -56,13 +66,35 @@ function buildTable(arr,tabl, bod){
 }
 
 function selectRow(index){
+    $('td').removeClass('selected');
+    $('th').removeClass('selected');
     if(index==0)
         $('[column=0]').addClass("selected");
     else if(index==1){
         $('[column=1]').addClass("selected");
     }
+    else if(index==2){
+        $('[column=2]').addClass("selected");
+    }
+    else if(index==3){
+        $('[column=3]').addClass("selected");
+    }
 }
 
 function selectColumn(index){
-    
+
+        $('td').removeClass('selected');
+        $('th').removeClass('selected');
+        if(index==0)
+            $('[row=0]').addClass("selected");
+        else if(index==1){
+            $('[row=1]').addClass("selected");
+        }
+        else if(index==2){
+            $('[row=2]').addClass("selected");
+        }
+        else if(index==3){
+            $('[row=3]').addClass("selected");
+        }
 }
+
