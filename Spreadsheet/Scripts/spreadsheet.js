@@ -65,29 +65,29 @@ function buildTable(arr,tabl, bod){
 
 function selectRow(index){
     if(index==0)
-        $('[column=0]').addClass("selected");
+        $('[column=0]').not('th').addClass("selected");
     else if(index==1){
-        $('[column=1]').addClass("selected");
+        $('[column=1]').not('th').addClass("selected");
     }
     else if(index==2){
-        $('[column=2]').addClass("selected");
+        $('[column=2]').not('th').addClass("selected");
     }
     else if(index==3){
-        $('[column=3]').addClass("selected");
+        $('[column=3]').not('th').addClass("selected");
     }
 }
 
 function selectColumn(index){
         if(index==0)
-            $('[row=0]').addClass("selected");
+            $('[row=0]').not('th').addClass("selected");
         else if(index==1){
-            $('[row=1]').addClass("selected");
+            $('[row=1]').not('th').addClass("selected");
         }
         else if(index==2){
-            $('[row=2]').addClass("selected");
+            $('[row=2]').not('th').addClass("selected");
         }
         else if(index==3){
-            $('[row=3]').addClass("selected");
+            $('[row=3]').not('th').addClass("selected");
         }
 }
 
