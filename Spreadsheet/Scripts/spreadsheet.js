@@ -7,19 +7,17 @@ window.onload=function(){
 
     //clicking column select
     $('th').not('.columnH').click(function(){
-        console.log("click " + this.getAttribute("row"))
+        deSelectAll();
         index = this.getAttribute('row');
         selectColumn(index);
     })
 
     $('th').not('.rowH th').click(function(){           //clicking row select (i have backwards variable names)
-
+        deSelectAll();
         index = this.getAttribute('column');
         selectRow(index)
         
-    })     
-
-    $('td').click(function(){console.log(this.getAttribute("row"))})
+    })  
 
 }
 
@@ -66,8 +64,6 @@ function buildTable(arr,tabl, bod){
 }
 
 function selectRow(index){
-    $('td').removeClass('selected');
-    $('th').removeClass('selected');
     if(index==0)
         $('[column=0]').addClass("selected");
     else if(index==1){
@@ -82,9 +78,6 @@ function selectRow(index){
 }
 
 function selectColumn(index){
-
-        $('td').removeClass('selected');
-        $('th').removeClass('selected');
         if(index==0)
             $('[row=0]').addClass("selected");
         else if(index==1){
@@ -96,5 +89,10 @@ function selectColumn(index){
         else if(index==3){
             $('[row=3]').addClass("selected");
         }
+}
+
+function deSelectAll(){
+    $('td').removeClass('selected');
+    $('th').removeClass('selected');
 }
 
