@@ -19,9 +19,16 @@ window.onload=function(){
         
     })  
 
+    $('td').click(function(){
+        this.innerHTML="<input type=text class=insertNum/>";
+        this.appendChild(input)
+     })
+
 }
 
 function buildTable(arr,tabl, bod){
+    document.body.innerHTML="";
+
     //input is a double array containing student number [i][0] then all assignment marks
     let len = arr[0].length;
     console.log(len);
@@ -50,6 +57,7 @@ function buildTable(arr,tabl, bod){
                 var cell = document.createElement("td");
                 var cellText = document.createTextNode("   " +arr[i][j]);
                 cell.setAttribute("id", ""+i+j);
+                cell.setAttribute('contenteditable','true')
             }
             cell.setAttribute('row',""+j);
             cell.setAttribute('column',""+i);
@@ -71,6 +79,7 @@ function selectRow(index){
     }
     else if(index==2){
         $('[column=2]').not('th').addClass("selected");
+        ``
     }
     else if(index==3){
         $('[column=3]').not('th').addClass("selected");
