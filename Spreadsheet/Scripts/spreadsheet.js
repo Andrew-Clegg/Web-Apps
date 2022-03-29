@@ -2,6 +2,7 @@ array = [[100000000,4.5, 3.75, 3.4], [100000001,4.25,4.12,4.25], [100000002,5.0,
 window.onload=function(){
     body = document.getElementById("body");
     tbl = document.getElementById("table");
+    activeTD = "";
     
     buildTable(array, tbl, body);
 
@@ -10,7 +11,6 @@ window.onload=function(){
         deSelectAll();
         index = this.getAttribute('row');
         selectColumn(index);
-        console.log(this.each())
     })
 
     $('th').not('.rowH th').click(function(){           //clicking row select (i have backwards variable names)
@@ -21,16 +21,20 @@ window.onload=function(){
     })  
 
     $('td').click(function(){
+        deSelectAll();
+        activeTD=this.getAttribute('id');
+        let row = activeTD[0];
+        let col = activeTD[1] ;
         let temp = this.innerText;
-        this.innerHTML=`<form><input type=text placeholder=${temp}></form>`;
+        $('td').addClass("selected");
+        this.innerHTML=``;
+        this.innerHTML=`<form><input type=text placeholder=${array[row][col]} ></form>`;
         this.setAttribute('class','insertNum') 
        
      })
 
-     $().keyup(function(event) {
-        if (event.keyCode === 13) {
-            console.log("WAD");
-        }
+     $('td').keypress(function(){
+        console.log( this.key);
     });
 
 }
@@ -40,7 +44,6 @@ function buildTable(arr,tabl, bod){
 
     //input is a double array containing student number [i][0] then all assignment marks
     let len = arr[0].length;
-    console.log(len);
     for (i=0; i <arr.length; i++){
         let row=document.createElement("tr");
         let row2=document.createElement("tr");
