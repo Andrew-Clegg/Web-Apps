@@ -10,6 +10,7 @@ window.onload=function(){
         deSelectAll();
         index = this.getAttribute('row');
         selectColumn(index);
+        console.log(this.each())
     })
 
     $('th').not('.rowH th').click(function(){           //clicking row select (i have backwards variable names)
@@ -20,9 +21,17 @@ window.onload=function(){
     })  
 
     $('td').click(function(){
-        this.innerHTML="<input type=text class=insertNum/>";
-        this.appendChild(input)
+        let temp = this.innerText;
+        this.innerHTML=`<form><input type=text placeholder=${temp}></form>`;
+        this.setAttribute('class','insertNum') 
+       
      })
+
+     $().keyup(function(event) {
+        if (event.keyCode === 13) {
+            console.log("WAD");
+        }
+    });
 
 }
 
@@ -57,7 +66,6 @@ function buildTable(arr,tabl, bod){
                 var cell = document.createElement("td");
                 var cellText = document.createTextNode("   " +arr[i][j]);
                 cell.setAttribute("id", ""+i+j);
-                cell.setAttribute('contenteditable','true')
             }
             cell.setAttribute('row',""+j);
             cell.setAttribute('column',""+i);
@@ -69,39 +77,28 @@ function buildTable(arr,tabl, bod){
     }
 
     bod.appendChild(tabl)
+    return tabl
 }
 
 function selectRow(index){
-    if(index==0)
-        $('[column=0]').not('th').addClass("selected");
-    else if(index==1){
-        $('[column=1]').not('th').addClass("selected");
-    }
-    else if(index==2){
-        $('[column=2]').not('th').addClass("selected");
-        ``
-    }
-    else if(index==3){
-        $('[column=3]').not('th').addClass("selected");
-    }
+
+    $(`[column=${index}]`).not('th').addClass("selected");
+
 }
 
 function selectColumn(index){
-        if(index==0)
-            $('[row=0]').not('th').addClass("selected");
-        else if(index==1){
-            $('[row=1]').not('th').addClass("selected");
-        }
-        else if(index==2){
-            $('[row=2]').not('th').addClass("selected");
-        }
-        else if(index==3){
-            $('[row=3]').not('th').addClass("selected");
-        }
+        $(`[row=${index}]`).not('th').addClass("selected");
 }
 
 function deSelectAll(){
     $('td').removeClass('selected');
     $('th').removeClass('selected');
+}
+
+function updateTable(table){
+    let c=this.getAttribute("id");
+
+
+
 }
 
