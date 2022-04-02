@@ -1,11 +1,21 @@
 let express = require('express');
-
+let session = require('express-session');
+const { get } = require('express/lib/response');
 let app = express();
 
-app.get('/',function(request, response){
-    response.send("Welcome to our PAge")
 
-    response.send("<button>btn</button>")
+app.use(express.static('public'));
+app.use(session({
+    //genid: "111",
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    //cookie: { secure: true }
+}));
+app.use(express.urlencoded({extended: false}));
+app.get('/',function(request, response){
+        //served statically. Not recommend
+    response.sendFile( __dirname +'index.html');
 });
 
 
