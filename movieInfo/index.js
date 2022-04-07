@@ -1,17 +1,28 @@
 let express = require('express');
 const { get } = require('express/lib/response');
+let session = require('express-session');
+const path = require('path');
 let app =express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
-
+app.use(session({
+    //genid: "111",
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    //cookie: { secure: true }
+}));
 app.get("/",function(request, response){
-    response.sendFile("showtimes.html");
+    response.send(`<html><p>Please direct to /showtimes  ${path}</p></html>`);
+    console.log(path);
 });
 
-app.use("/showtimes", function(request,response,next){
-    console.log("Retrive data from database");
-    next();
+
+
+app.get("/showtimes", function(request, response){
+    response.sendFile("./public/showtimes.html");
+    response.send("???");
 });
 
 app.post('/search', function(request,response){
@@ -22,13 +33,9 @@ app.post('/search', function(request,response){
 });
 
 function myFunction(){
-    document.getElementById("myDropdown").classList.toggle("show");
+    console.log("location retrive")
 }
 
-$('location').onclick(function(){
-    document.getElementById("myDropdown").classList.toggle("show");
-
-});
 
 
 app.set('port',process.env.PORT ||4500);
